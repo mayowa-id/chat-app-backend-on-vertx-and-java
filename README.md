@@ -4,8 +4,9 @@
 
 A high-performance, real-time chat backend built using the [Eclipse Vert.x](https://vertx.io/) toolkit with WebSocket support, JWT authentication, MongoDB for message persistence, Redis for pub/sub and session handling, and RESTful endpoints for chat history and user management.
 
----
-file:///C:/Users/NEW%20USER/Downloads/Features%20of%20the%20Messaging%20System%20-%20visual%20selection.svg
+---![Features of the Messaging System - visual selection](https://github.com/user-attachments/assets/ca1db6ea-19be-4bcf-98bc-d4d6e32a216c)
+
+
 ##  Features
 
 - **WebSocket-based real-time messaging**
