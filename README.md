@@ -1,6 +1,4 @@
-# e-commerce-backend-on-vertx-and-java
-
-# Vert.x Scalable Chat Backend
+# Yappity Chat App on Vertx and Java
 
 A high-performance, real-time chat backend built using the [Eclipse Vert.x](https://vertx.io/) toolkit with WebSocket support, JWT authentication, MongoDB for message persistence, Redis for pub/sub and session handling, and RESTful endpoints for chat history and user management.
 
