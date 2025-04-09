@@ -1,0 +1,152 @@
+{
+  "info": {
+    "name": "Vert.x Chat Application API",
+    "_postman_id": "12345678-abcd-1234-abcd-12345678abcd",
+    "description": "API documentation for Vert.x Chat Application backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/api/register",
+              "host": ["{{base_url}}"],
+              "path": ["api", "register"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"john_doe\", \"password\": \"your_password\"}"
+            },
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/api/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "login"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\": \"john_doe\", \"password\": \"your_password\"}"
+            },
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Messages",
+      "item": [
+        {
+          "name": "Get Messages by Room",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/messages/{{room}}?limit={{limit}}&before={{before}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "messages", "{{room}}"],
+              "query": [
+                { "key": "limit", "value": "{{limit}}" },
+                { "key": "before", "value": "{{before}}" }
+              ]
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ]
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "WebSocket (Real-time)",
+      "item": [
+        {
+          "name": "Connect to WebSocket",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "ws://localhost:8888/ws/chat?token={{token}}&room={{room}}",
+              "host": ["localhost"],
+              "port": 8888,
+              "path": ["ws", "chat"],
+              "query": [
+                { "key": "token", "value": "{{token}}" },
+                { "key": "room", "value": "{{room}}" }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Typing Indicator",
+      "item": [
+        {
+          "name": "Notify Typing Event",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/api/typing",
+              "host": ["{{base_url}}"],
+              "path": ["api", "typing"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"room\": \"general\", \"sender\": \"john_doe\"}"
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ]
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Read Receipts",
+      "item": [
+        {
+          "name": "Send Read Receipt",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/api/read-receipt",
+              "host": ["{{base_url}}"],
+              "path": ["api", "read-receipt"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"room\": \"general\", \"messageId\": \"66148f0fabc123456789abcd\", \"reader\": \"john_doe\"}"
+            },
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ]
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
